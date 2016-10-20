@@ -3,12 +3,12 @@ package es.urjc.code.daw;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AnuncioController {
 
-	@RequestMapping("/guardaranuncio")
+	@PostMapping("/guardaranuncio")
 	public String guardarAnuncio(Model model, Anuncio anuncio) {
 
 		model.addAttribute("anuncio", anuncio);

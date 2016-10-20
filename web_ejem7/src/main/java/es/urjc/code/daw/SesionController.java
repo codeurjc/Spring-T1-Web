@@ -3,8 +3,8 @@ package es.urjc.code.daw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -15,7 +15,7 @@ public class SesionController {
 
 	private String infoCompartida;
 
-	@RequestMapping(value = "/procesarFormulario", method = RequestMethod.POST)
+	@PostMapping(value = "/procesarFormulario")
 	public String procesarFormulario(@RequestParam String info) {
 
 		usuario.setInfo(info);
@@ -24,7 +24,7 @@ public class SesionController {
 		return "resultado_formulario";
 	}
 
-	@RequestMapping("/mostrarDatos")
+	@GetMapping("/mostrarDatos")
 	public String mostrarDatos(Model model) {
 
 		String infoUsuario = usuario.getInfo();

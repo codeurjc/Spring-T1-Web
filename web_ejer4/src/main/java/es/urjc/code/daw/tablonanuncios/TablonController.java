@@ -5,8 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TablonController {
@@ -18,7 +19,7 @@ public class TablonController {
 		anuncios.add(new Anuncio("Juan", "Hola caracola", "XXXX"));
 	}
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String tablon(Model model) {
 
 		model.addAttribute("anuncios", anuncios);
@@ -26,7 +27,7 @@ public class TablonController {
 		return "tablon";
 	}
 
-	@RequestMapping("/anuncio/nuevo")
+	@PostMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
 		anuncios.add(anuncio);
@@ -35,7 +36,7 @@ public class TablonController {
 
 	}
 
-	@RequestMapping("/anuncio/{num}")
+	@GetMapping("/anuncio/{num}")
 	public String verAnuncio(Model model, @PathVariable int num) {
 
 		Anuncio anuncio = anuncios.get(num - 1);
