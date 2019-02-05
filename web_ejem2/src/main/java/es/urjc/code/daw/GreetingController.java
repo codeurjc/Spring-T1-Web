@@ -3,7 +3,7 @@ package es.urjc.code.daw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class GreetingController {
@@ -11,7 +11,7 @@ public class GreetingController {
 	@Autowired
 	private UserService usersService;
 
-	@RequestMapping("/greeting")
+	@GetMapping("/greeting")
 	public String greeting(Model model) {
 
 		model.addAttribute("name", usersService.getNumUsers() + " users");

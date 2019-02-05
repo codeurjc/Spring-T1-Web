@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MustacheController {
 
-	@RequestMapping("/basic")
+	@GetMapping("/basic")
 	public String basic(Model model) {
 
 		model.addAttribute("name", "World");
@@ -19,7 +19,7 @@ public class MustacheController {
 		return "basic_template";
 	}
 
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public String iteration(Model model) {
 
 		List<String> colors = Arrays.asList("Red", "Blue", "Green");
