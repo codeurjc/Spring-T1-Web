@@ -59,6 +59,8 @@ public class TablonController {
 	public String nuevoAnuncio(Model model, @PathVariable int num) {
 
 		Anuncio anuncio = anuncios.get(num - 1);
+		
+		System.out.println(anuncio);
 
 		model.addAttribute("anuncio", anuncio);
 

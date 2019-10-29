@@ -13,7 +13,7 @@ public class SesionController {
 
 	private String infoCompartida;
 
-	@PostMapping(value = "/procesarFormulario")
+	@PostMapping("/procesarFormulario")
 	public String procesarFormulario(@RequestParam String info, HttpSession sesion) {
 
 		sesion.setAttribute("infoUsuario", info);

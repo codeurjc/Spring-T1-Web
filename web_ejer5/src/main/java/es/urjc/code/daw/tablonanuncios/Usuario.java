@@ -8,7 +8,7 @@ import org.springframework.web.context.annotation.SessionScope;
 public class Usuario {
 
 	private String nombre = "";
-	private int numAnuncios;
+	private int numAnuncios = 0;
 
 	public String getNombre() {
 		return nombre;
