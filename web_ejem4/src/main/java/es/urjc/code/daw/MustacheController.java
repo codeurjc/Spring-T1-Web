@@ -14,7 +14,7 @@ public class MustacheController {
 	public String basic(Model model) {
 
 		model.addAttribute("name", "World");
-		model.addAttribute("silent", true);
+		model.addAttribute("show", true);
 
 		return "basic_template";
 	}
