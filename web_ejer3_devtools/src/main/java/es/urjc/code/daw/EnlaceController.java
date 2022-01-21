@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class EnlaceController {
 
-	@GetMapping("/enlace/{num}")
-	public String enlace(Model model, @PathVariable String num) {
+	@GetMapping("/student/{id}/subjects/{subject_id}")
+	public String enlace(
+			Model model, 
+			@PathVariable String id, 
+			@PathVariable String subject_id) {
 
 		model.addAttribute("num", num);
 

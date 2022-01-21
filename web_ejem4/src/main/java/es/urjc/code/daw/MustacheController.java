@@ -25,6 +25,9 @@ public class MustacheController {
 		List<String> colors = Arrays.asList("Red", "Blue", "Green");
 
 		model.addAttribute("colors", colors);
+		
+		List<Empleado> empleados = Arrays.asList(new Empleado("juan", 45_000), new Empleado("maria", 55_000));
+		model.addAttribute("empleados", empleados);
 
 		return "list_template";
 	}

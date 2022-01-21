@@ -31,5 +31,20 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
-
+<repositories>
+    <repository>
+      <id>maven-group</id>
+      <url>http://localhost:8081/repository/mvn-group/</url>
+    </repository>
+  </repositories>
+<distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://localhost:8081/repository/mvn-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/repository/mvn-releases/</url>
+    </repository>
+  </distributionManagement>
 </project>

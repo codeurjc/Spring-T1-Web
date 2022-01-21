@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class EnlaceController {
 
 	@GetMapping("/enlace")
-	public String enlace(Model model, @RequestParam String num) {
+	public String enlace(Model model, @RequestParam int num) {
 
 		model.addAttribute("num", num);
 

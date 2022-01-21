@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AnuncioController {
+	
+	private List<Anuncio> 
 
 	@PostMapping("/guardaranuncio")
-	public String guardarAnuncio(Model model, @RequestParam String nombre, @RequestParam String asunto,
+	public String guardarAnuncio(
+			Model model, 
+			@RequestParam String nombre, 
+			@RequestParam String asunto,
 			@RequestParam String comentario) {
 
 		model.addAttribute("nombre", nombre);

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
 
-	@Bean
+	//@Bean
 	public UserService usersService() {
 		return new UserService(10);
 	}

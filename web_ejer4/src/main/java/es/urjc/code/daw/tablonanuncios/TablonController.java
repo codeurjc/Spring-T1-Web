@@ -3,6 +3,9 @@ package es.urjc.code.daw.tablonanuncios;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,17 +15,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class TablonController {
 
-	private List<Anuncio> anuncios = new ArrayList<>();
-
+	@Autowired
+	private AnuncioRepository anuncioRepository;
+	
 	public TablonController() {
-		anuncios.add(new Anuncio("Pepe", "Hola caracola", "XXXX"));
-		anuncios.add(new Anuncio("Juan", "Hola caracola", "XXXX"));
 	}
 
+	@PostConstruct
+	public void init() {
+		anuncioRepository.save(new Anuncio("Pepe", "Hola caracola", "XXXX"));
+		anuncioRepository.save(new Anuncio("Juan", "Hola caracola", "XXXX"));
+	}
+	
 	@GetMapping("/")
 	public String tablon(Model model) {
 
-		model.addAttribute("anuncios", anuncios);
+		model.addAttribute("anuncios", anuncioRepository.findAll());
 
 		return "tablon";
 	}
@@ -30,16 +38,16 @@ public class TablonController {
 	@PostMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
-		anuncios.add(anuncio);
+		anuncioRepository.save(anuncio);
 
 		return "anuncio_guardado";
 
 	}
 
-	@GetMapping("/anuncio/{num}")
-	public String verAnuncio(Model model, @PathVariable int num) {
+	@GetMapping("/anuncio/{id}")
+	public String verAnuncio(Model model, @PathVariable long id) {
 
-		Anuncio anuncio = anuncios.get(num - 1);
+		Anuncio anuncio = anuncioRepository.findById(id).get();
 
 		model.addAttribute("anuncio", anuncio);
 
